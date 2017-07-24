@@ -5,6 +5,10 @@
     <title>Hello World!</title>
   </head>
   <body>
+    <div class="toolbar">
+      <button id="maximize"></button>
+      <button id="unmaximize"></button>
+    </div>
     <h1>Hello World!</h1>
     <!-- All of the Node.js APIs are available in this renderer process. -->
     We are using Node.js <script>document.write(process.versions.node)</script>,
@@ -12,6 +16,27 @@
     and Electron <script>document.write(process.versions.electron)</script>.
   </body>
 
+  <style>
+    .toolbar {
+      height: 20px;
+      -webkit-app-region: drag;
+      background: rgba(255, 0, 0, 0.3);
+    }
+    button {
+      width: 20px;
+      height: 20px;
+      -webkit-app-region: no-drag;
+    }
+    button.hide {
+      display: none;
+    }
+    #maximize {
+      background: rgba(0, 255, 0, 0.3);
+    }
+    #unmaximize {
+      background: rgba(0, 0, 255, 0.3);
+    }
+  </style>
   <script>
     // You can also require other files to run in this process
     require('./renderer.js')
